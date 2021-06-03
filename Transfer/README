@@ -1,0 +1,37 @@
+1.修改elementUI的穿梭框样式。实现样式见图片
+
+2.使用方法
+源文件引入Transfer
+
+
+ <Transfer
+        ref="transfer"
+        v-model="value"
+        filterable
+        filter-placeholder="请输入功能名"
+        :titles="['选择功能', '已选功能']"
+        :format="{
+          noChecked: '${total}',
+          hasChecked: '${checked}/${total}'
+        }"
+        :data="data"
+        @addValue="addValue"
+        @deleteValue="deleteValue"
+        @left-check-change="changeLeftChecked"
+        @right-check-change="changeRightChecked"
+      >
+        <span slot-scope="{ option }">
+          {{ option.key }} - {{ option.label }}
+        </span>
+        <div slot="left-footer">
+          <el-button type="text" class="transfer-footer-left" size="small" @click="addBatch()">批量添加</el-button>
+        </div>
+        <div slot="right-footer">
+          <el-button type="text" class="transfer-footer-left" size="small" @click="deleteBatch()">批量删除</el-button>
+          <el-button type="text" class="transfer-footer-right" size="small" @click="clearOption()">清空可选项</el-button>
+        </div>
+      </Transfer>
+      
+      
+
+
